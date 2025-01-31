@@ -6,8 +6,19 @@ import androidx.lifecycle.ViewModel
 
 class InventoryViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is the inventory fragment"
+    // List of items in the inventory
+    private val _items = MutableLiveData<MutableList<String>>(mutableListOf())
+    val items: LiveData<MutableList<String>> get() = _items
+
+    // Add a new item to the inventory
+    fun addItem(item: String) {
+        val currentItems = _items.value ?: mutableListOf()
+        currentItems.add(item)
+        _items.value = currentItems
     }
-    val text: LiveData<String> = _text
+
+    // Optionally: Clear all items (if needed for reset functionality)
+    fun clearItems() {
+        _items.value = mutableListOf()
+    }
 }

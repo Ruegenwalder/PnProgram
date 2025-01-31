@@ -23,7 +23,7 @@ class SettingsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val settingsViewModel =
-            ViewModelProvider(this).get(SettingsViewModel::class.java)
+            ViewModelProvider(this)[SettingsViewModel::class.java]
 
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -33,6 +33,11 @@ class SettingsFragment : Fragment() {
             textView.text = it
         }
         return root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        activity?.invalidateOptionsMenu() // Forces the menu to be recreated
     }
 
     override fun onDestroyView() {
