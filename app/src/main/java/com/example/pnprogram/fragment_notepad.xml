@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- EditText for typing a note -->
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:hint="@string/addnote"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:minWidth="128dp"
+        android:maxWidth="320dp"
+        android:minHeight="64dp" />
+
+    <!-- Button to submit the note -->
+    <Button
+        android:id="@+id/addNoteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/addnote_button" />
+
+    <!-- Container for the list of notes -->
+    <LinearLayout
+        android:id="@+id/notesContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp">
+    </LinearLayout>
+
+    <!-- Undo Snackbar message (Initially invisible) -->
+    <TextView
+        android:id="@+id/undoMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/note_deleted"
+        android:visibility="gone"
+        android:layout_marginTop="16dp"
+        android:textColor="#D32F2F" />
+
+    <Button
+        android:id="@+id/undoAllButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/undo_all_deletions"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone" />
+
+</LinearLayout>

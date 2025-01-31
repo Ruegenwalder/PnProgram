@@ -35,6 +35,11 @@ class CharacterFragment : Fragment() {
         return root
     }
 
+    override fun onResume() {
+        super.onResume()
+        activity?.invalidateOptionsMenu() // Forces the menu to be recreated
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
